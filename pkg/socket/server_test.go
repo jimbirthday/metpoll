@@ -3,7 +3,6 @@ package socket
 import (
 	"fmt"
 	"testing"
-	"time"
 )
 
 func TestServer(t *testing.T) {
@@ -12,5 +11,4 @@ func TestServer(t *testing.T) {
 		fmt.Println(err.Error())
 		return
 	}
-	time.Sleep(time.Second * 10)
 }
