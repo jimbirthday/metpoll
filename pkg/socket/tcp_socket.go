@@ -30,7 +30,6 @@ func tcpSocket(addr string, passive bool) (int, net.Addr, error) {
 			_ = unix.Close(fd)
 		}
 	}()
-
 	if passive {
 		if err = os.NewSyscallError("bind", unix.Bind(fd, sa)); err != nil {
 			return 0, nil, err

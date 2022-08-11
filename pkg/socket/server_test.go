@@ -52,7 +52,10 @@ func TestServer(t *testing.T) {
 				} else { // poller is awakened to run tasks in queues.
 					efdBuf := make([]byte, 8)
 					_, _ = unix.Read(efd, efdBuf)
-					fmt.Print(string(efdBuf))
+					s := string(efdBuf)
+					if s != "\x00\x00\x00\x00\x00\x00\x00\x00" {
+						fmt.Println(s)
+					}
 				}
 			}
 		}
